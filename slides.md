@@ -438,6 +438,8 @@ N-key rollover - reporting any number of key-presses at once.
 
 ⌨ Notable keyboards: ZSA (Voyager, Moonlander, ErgoDox), Nuphy
 
+
+
 ---
 ---
 # Firmware: ZMK <MarkerFirmware/>
@@ -461,6 +463,30 @@ N-key rollover - reporting any number of key-presses at once.
 📝 License: MIT
 
 ⌨ Notable keyboards: Kinesis Advantage 360 Pro
+
+---
+---
+# Firmware: RMK <MarkerFirmware/>
+
+<a href="https://github.com/haobogu/rmk">
+  <img class="absolute right-130px bottom-80px" src="/images/ferris.png" width="100" alt="ZMK project logo">
+  <img class="absolute right-100px top-80px" src="/images/rmk-logo.png" width="200" alt="ZMK project logo">
+</a>
+
+#### Pros:
+- Powered by [embassy](https://embassy.dev/)
+- **Eeasy configuration throught TOML**
+- **Bluetooth support**
+- **Power-efficient** 🔋
+- **Straightforward build using Cargo** 📦
+- **Built-in [Vial](https://get.vial.today/)**
+ 
+#### Cons:
+- **32/64-bit platforms only**
+- **RGB, encoder and Display support is not there yet**
+- **Small community**
+
+📝 License: MIT
 ---
 layout: two-cols-header
 ---
@@ -514,7 +540,8 @@ layout: two-cols-header
 }
 </style>
 
-# Firmware Demo
+# Firmware Demo <MarkerFirmware/>
+
 Build & Flash
 
 ::left::
@@ -562,8 +589,7 @@ cargo build
 ```
 
 ---
-layout: 
-zoom: 0.9
+layout: two-cols-header
 ---
 
 # Manufacturing & Parts Sourcing
@@ -576,10 +602,17 @@ zoom: 0.9
 - Default settings should be fine
 - Add SMT assemby service if needed
 
+::right::
+
+<v-click>
+
 #### 💡 Cost saving
  - Buy multiple (5 at JLPCB)
  - Combine orders
  - Basic colors are cheaper
+
+</v-click>
+
 <!---->
 <!--• Use 1.6mm PCB thickness-->
 <!--• Min trace width: 0.15mm-->
