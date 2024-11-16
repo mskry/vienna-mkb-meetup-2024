@@ -114,10 +114,28 @@ h1:last-of-type::after {
   }
 }
 </style>
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
 
+---
+layout: center
+---
+# Why Keyboard Meetups?
+Keyboard meetups transform an online hobby into a vibrant, tangible community experience
+
+<v-clicks>
+
+🤝 Community Building
+
+🖐️ Hands-on Experience
+
+🎪 Show & Tell
+
+💫 Trading & Shopping
+
+📚 Knowledge Sharing
+
+🔊 Sound Tests
+
+</v-clicks>
 ---
 ---
 
@@ -151,10 +169,10 @@ The last comment block of each slide will be treated as slide notes. It will be 
   </a>
 </div>
 
-<!--1. Bottom case / acryllic plate / FR plate : Screw in PCB into it, can hold sound dampening material (EVA - Ethylene-vinyl acetate, Poron - Urethane material, PE - Polyethylene) -->
-<!--2. PCB (Printed Circuit Board) made of FR4 - base material made from a flame retardant epoxy resin and glass fabric composite.-->
-<!--3. Plate: -->
-<!--Siwtches
+<!--1. Bottom case / acryllic plate / FR plate : Screw in PCB into it, can hold sound dampening material (EVA - Ethylene-vinyl acetate, Poron - Urethane material, PE - Polyethylene)
+2. PCB (Printed Circuit Board) made of FR4 - base material made from a flame retardant epoxy resin and glass fabric composite.
+3. Plate
+4. Siwtches
       profiles: cherry mx compatible, low profile kailh chock/gateron,
       material: PBT, ABS, resin, metal, 
       process: dye sublimation, Reverse Dye-sublimation , double shot
@@ -162,24 +180,27 @@ The last comment block of each slide will be treated as slide notes. It will be 
       heaviness: spring rigidity : light / heavy
       types: mechanical, optical, HAL-effect
       mod: O-ring, film, lubrication
+
+5. Stabilizers - mechanisms that keep the larger keys like Space, Shift, Enter, and Backspace in place and, for lack of a better word, stable. 
 -->
- <!-- Stabilizers - mechanisms that keep the larger keys like Space, Shift, Enter, and Backspace in place and, for lack of a better word, stable. -->
 
 ---
 transition: fade-out
-layout: two-cols-header
 ---
 
 # MCU and SoC <MarkerHardware/>
 
-Microcontrollers and SoCs typically responsible for the following key functions in keyboards
-- Host connectivity
-- Peripherals connectivity
-- Key matrix scanning
-- Debouncing
-- LED control
-- Memory
+Microcontrollers and SoCs features
 
+- CPU Core
+- Memory systems
+- USB / HID Connectivity
+- Wireless features
+- GPIO & Peripherals
+- Reset & Power management
+- Programming (ISP)
+
+<img class="absolute right-150px top-100px" src="/images/sea-picro-pinout.png" width="380" alt="sea-picro pinout image">
 
 <div
   v-motion
@@ -187,59 +208,88 @@ Microcontrollers and SoCs typically responsible for the following key functions 
   :enter="{ x: 50 }"
   :leave="{ y: 400 }"
 >
-<div class="absolute right-100px bottom-50px">
-  <img width="220" src="/images/atmega.avif" alt="atmega32u4 image">
+<div class="absolute right-50px bottom-20px">
+  <img width="120" src="/images/rp2040_MCU.png" alt="rp2040 image">
 </div>
 
 </div>
 <!--
-1. Handling USB, Bluetooth Low Energy (BLE), or other communication protocols to connect the keyboard to a host device.
-2. Interfacing with various peripherals such as analog-to-digital converters (ADCs), pulse-width modulation (PWM) controllers, I2C, and SPI.
-3. Scanning the keyboard matrix to detect key presses and releases.
-4. Processing mouse movement data and reporting it to the host.
-5. Filtering out switch bouncing to ensure reliable key detection.
-6. Controlling LED indicators and underglow effects.
-7. Storing configuration data, macros, or other persistent information in flash memory or EEPROM.
+EEPROM (Electrically Erasable Programmable Read-Only Memory) is a type of non-volatile memory that retains data even when power is removed.
+
+USB controller, Bluetooth Low Energy (BLE) controller
+
+Interfacing with various peripherals such as analog-to-digital converters (ADCs), pulse-width modulation (PWM) controllers, I2C, and SPI.
+
+ISP allows you to program a microcontroller while it's installed in the target system, without needing to remove the chip. 
+
+Pinout is identical to the SparkFun Pro Micro
+
+RX (Receive) and TX (Transmit) pins, which are fundamental to serial communication. UART stands for universal asynchronous receiver / transmitter :
+
+SDA and SCL pins are part of the I2C:
+
+ADC - analog-digital-converter
+
+VCC(voltage common collector) and GND for power
+
+MOSI (Master Out Slave In)
+
+MISO (Master In Slave Out)
+
+SCK (Serial Clock)
+
+RAW - direct, unprocessed input/output pin (Debugging)
+
+D- and D+ pins, which are essential for USB (Universal Serial Bus) communication.
 -->
 
 ---
 transition: slide-up
-layout:  two-cols-header
+layout: center
 ---
 # MCU and SoC: Top ones <MarkerHardware/>
-::left::
-<v-clicks>
 
-1. **Atmega32u4** 
-- 8-bit AVR RISC-based microcontroller
-- Budget-friendly, used in many keyboard projects
-- 32 KB of flash memory, 2.5 KB SRAM
-- 20 MHz clock speed
+<v-switch>
+  <template #0> 
 
-2. **STM32F103**
-- 32-bit ARM Cortex-M3 microcontroller
-- High performance, used in high-end keyboards
-- 64 KB to 128 KB of flash memory, 20 KB to 64 KB SRAM
-- 72 MHz clock speed
+  1. **Atmega32u4**
+      - 8-bit AVR RISC-based microcontroller
+      - Budget-friendly, used in many keyboard projects
+      - 32 KB of flash memory, 2.5 KB SRAM
+      - 20 MHz clock speed
 
-</v-clicks>
+ </template>
+  <template #1>
 
-::right::
+  2. **STM32F103**
+     - 32-bit ARM Cortex-M3 microcontroller
+     - High performance
+     - 64 KB to 128 KB of flash memory, 20 KB to 64 KB SRAM
+     - 72 MHz clock speed
 
-<v-clicks>
+  </template>
 
-3. **RP2040**
-- 32-bit ARM Cortex-M0+ microcontroller
-- Developed by Raspberry Pi, gaining popularity
-- 264 KB of flash memory, 264 KB SRAM
-- 133 MHz clock speed
-4. **nRF52840**
-- 32-bit ARM Cortex-M4 microcontroller
-- Supports Bluetooth Low Energy (BLE)
-- 1 MB of flash memory, 256 KB SRAM
-- 64 MHz clock speed
+  <template #2>
 
-</v-clicks>
+  3. **RP2040**
+     - 32-bit ARM Cortex-M0+ microcontroller
+     - Developed by Raspberry Pi, gaining popularity
+     - 264 KB of flash memory, 264 KB SRAM
+     - 133 MHz clock speed
+
+  </template>
+
+  <template #3>
+
+  4. **nRF52840**
+     - 32-bit ARM Cortex-M4 microcontroller
+     - Supports Bluetooth Low Energy (BLE)
+     - 1 MB of flash memory, 256 KB SRAM
+     - 64 MHz clock speed
+
+  </template>
+</v-switch>
+
 ---
 transition: slide-up
 layout: center
@@ -259,6 +309,20 @@ zoom: 0.9
 | 👥 Support | High | High | High | Moderate |
 | 💸 Cost        | € | €€ | €€ | €€€ |
 
+<!-- 
+ADC - analog sensing, preasure, temperature, battery, audio inputs
+
+PWM (Pulse-width modulation) RGB color intensity, haptic devices, motors, etc
+
+I2C (Inter-Integrated Circuit) Communication with Peripherals:  EEPROM,RGB controllers, Sensors, audio controllers
+
+SPI (Serial Peripheral Interface) serial communication protocol: hight speed data transfer, Display, Flash communication and storing, full duplex unline I2C
+
+1. 4 euro
+2. 9 euro
+3. 9 euro
+4. 10 euro 
+-->
 ---
 transition: slide-up
 layout: two-cols-header
@@ -282,24 +346,73 @@ zoom: 1.2
 </v-clicks>
 ::right::
 
-<!--<div v-click.hide="[2]">-->
-<!--  <img  class="absolute right-120px bottom-120px" width="430" src="/pro_micro_pinout.jpg"/>-->
-<!--</div>-->
-
-<!--<div v-click.hide="[1]">-->
-<!--  <img  class="absolute right-150px bottom-50px" width="500" src="/elite-pi-pinout.png"/>-->
-<!--</div>-->
-<!---->
-<!--<div v-click.hide="[1]">-->
-<!--  <img  class="absolute right-100px bottom-50px" width="430" src="/sea-picro-pinout.png"/>-->
-<!--</div>-->
-<!--<div v-click.hide="[1]">-->
-<!--  <img  class="absolute right-100px bottom-50px" width="600" src="/nicenano-pinout-v2.png"/>-->
-
 <img  class="absolute right-290px bottom-150px" width="120" src="/images/nicenano-v2.png"/>
 <img  class="absolute right-30px bottom-20px" width="280" src="/images/sea-picro-render.png"/>
 
 <!--Pro Micro initially created by SparkFun as Arduino-compatible board. Open Source Hardware Association(Arduino, Adafruit Industries) . There tons of ProMicro footprint clones with either ATmega32U4 or RP2040.-->
+---
+layout: two-cols-header
+---
+# Firmware: The Features  <MarkerFirmware/>
+
+::left::
+
+<v-click>
+
+**1. Core features**
+- Matrix scanning
+- Debounce
+- HID bidirectional communication
+- N-Key Rollover
+
+</v-click>
+
+<v-click at="+1">
+
+**2. Advance features**
+- Layers
+- Macros
+- Lighting control
+- OLED/Display control
+- Media controls
+- MIDI
+
+</v-click>
+
+::right::
+
+<v-click at="+1">
+
+**3. User customization**
+
+- Key remapping
+- Tap dance
+- Combos
+- Hold/Tap
+
+</v-click>
+
+<v-click at="+1">
+
+**4. Hardware managment**
+- Peripheral control
+- Power Management (Sleep/wake)
+- Split keyboard communication
+- BLE profiles
+- EEPROM clearing
+- Bootloader mode
+
+</v-click>
+
+<!-- 
+Matrix scanning is the process of detecting which keys are currently pressed
+
+Debounce: A lot  of things can interfere with key presses: noice signals, oxydized contacts
+
+HID(human interface device) Talk with hidapi implementation
+
+N-key rollover - reporting any number of key-presses at once.
+-->
 ---
 ---
 # Firmware: QMK <MarkerFirmware/>
@@ -333,8 +446,6 @@ zoom: 1.2
   <img class="absolute right-130px bottom-80px" src="/images/zephyr_project_logo.png" width="100" alt="ZMK project logo">
   <img class="absolute right-100px top-80px" src="/images/zmk_logo.svg" height="150" width="130" alt="ZMK project logo">
 </a>
-
-
 
 #### Pros:
 - **Built on the [Zephyr Framework](https://zephyrproject.org/)** ([1](https://zephyrproject.org/building-open-keyboards-with-zmk-zephyr/))
@@ -370,7 +481,6 @@ layout: two-cols-header
 
 📝 License: GPLv3
 
-
 <img class="absolute left-70px bottom-50px" src="/images/kmk_logo.svg" width="200" alt="ZMK project logo">
 
 ::right::
@@ -393,8 +503,108 @@ layout: two-cols-header
 - **nRF52 Nordic family only** (32-bit ARM Cortex-M4F)
 
 📝 License: BSD 3-Clause
+
 ---
-layout: center
+layout: two-cols-header
 ---
 
+<style>
+.col-right {
+ padding: 0 2em !important;
+}
+</style>
+
+# Firmware Demo
+Build & Flash
+
+::left::
+
+#### AVR
+```bash
+
+# Flash only, build with QMK
+ avrdude -v -c usbtiny -p m32u4 -U flash:w:your_firmware.hex:i
+```
+
+#### QMK
+```bash
+
+# QMK CLI
+qmk flash -kb <keyboard> -km <keymap>
+```
+
+```bash
+
+# QMK Docker Build only
+./util/docker_build.sh <keyboard>:<keymap>
+```
+
+#### ZMK
+ 
+```bash
+
+# Commit you zmk-config folder for the GitHub Actions
+# Or run it with the west tool
+west build -b <keyboard>
+
+# DFU enabled
+west flash
+```
+
+::right::
+
+#### RMK
+```bash
+
+# Simply `cago build` inside a keyboard config folder
+cargo build
+
+```
+
+---
+layout: 
+zoom: 0.9
+---
+
+# Manufacturing & Parts Sourcing
+
+### PCB / Plate
+- Get / Design your KiCad schematics
+- [Generate Gerber and drill files](https://jlcpcb.com/help/article/how-to-generate-gerber-and-drill-files-in-kicad-8)
+- [Generate BOM file (only for assemby service)](https://jlcpcb.com/help/article/How-to-generate-the-BOM-and-Centroid-file-from-KiCAD)
+- Upload Gerber files and BOM to JLCPC.com
+- Default settings should be fine
+- Add SMT assemby service if needed
+
+#### 💡 Cost saving
+ - Buy multiple (5 at JLPCB)
+ - Combine orders
+ - Basic colors are cheaper
+<!---->
+<!--• Use 1.6mm PCB thickness-->
+<!--• Min trace width: 0.15mm-->
+<!--• Min hole size: 0.3mm-->
+<!---->
+
+---
+layout: iframe
+zoom: 0.7
+url: https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5&spm=Jlcpcb.Homepage.1010
+---
+
+---
+layout: end
+---
 # Thank you!
+
+<div class="absolute bottom-0 right-20 text-xs bg-black bg-opacity-30 px-2 py-1 rounded">
+  <a 
+    href="https://github.com/mskry" 
+    target="_blank" 
+    alt="presenter's github link" 
+    title="Mykola Skrypets"
+    class="text-gray text-jb-medium hover:text-blue-200 transition-colors duration-200"
+  >
+    Presented by Mykola Skrypets
+  </a>
+</div>
