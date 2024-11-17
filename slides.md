@@ -1,7 +1,7 @@
 ---
 # You can also start simply with 'default'
 theme: seriph
-background: /images/background-2.png
+background: /images/background-2.webp
 # some information about your slides (markdown enabled)
 title: Welcome to Vienna MKB Meetup 2024
 info: |
