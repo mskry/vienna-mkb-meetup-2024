@@ -1,16 +1,15 @@
 ---
 theme: seriph
-background: /assets/background-2.jpg
 # some information about your slides (markdown enabled)
 title: Welcome to Vienna MKB Meetup 2024
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
-
   Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: relative
 layout: cover
+background: /images/background-2.jpg
 drawings:
   persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
