@@ -1,7 +1,6 @@
 ---
-# You can also start simply with 'default'
 theme: seriph
-background: /images/background-2.webp
+background: /images/background-2.jpg
 # some information about your slides (markdown enabled)
 title: Welcome to Vienna MKB Meetup 2024
 info: |
@@ -297,15 +296,15 @@ zoom: 0.9
 ---
 
 # MCU and SoC: A Comparison <MarkerHardware/>
-| **Feature**      | **Atmega32u4** | **STM32F103** | **RP2040** | **nRF52840** |
-|---------------|------------|------------|---------|-----------|
-| 🔲 Processor   | 8-bit AVR  | 32-bit ARM | 32-bit ARM | 32-bit ARM |
-| 💾 Flash Memory  | 32 KB      | 64-128 KB  | 264 KB  | 1 MB       |
-| RAM           | 2.5 KB     | 20-64 KB   | 264 KB  | 256 KB     |
-| 💪 Speed   | 20 MHz     | 72 MHz     | 133 MHz| 64 MHz     |
-| 🔌USB Support   | Yes        | Yes        | Yes     | Yes        |
-| ᛒ Bluetooth LE  | No         | No         | No      | Yes        |
-| 🖱️Peripherals   | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation)   | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) |
+| **Feature** | **Atmega32u4** | **STM32F103** | **RP2040** | **nRF52840** |
+|-------------|----------------|---------------|------------|--------------|
+| Processor | 8-bit AVR | 32-bit ARM | 32-bit ARM | 32-bit ARM |
+| Flash Memory | 32 KB | 64-128 KB | 264 KB | 1 MB |
+| RAM | 2.5 KB | 20-64 KB | 264 KB | 256 KB |
+| Speed | 20 MHz | 72 MHz | 133 MHz | 64 MHz |
+| USB Support | Yes | Yes | Yes | Yes |
+| Bluetooth LE | No | No | No | Yes |
+| Peripherals | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation) | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) | [ADC](https://en.wikipedia.org/wiki/Analog-to-digital_converter), [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation), [I²C](https://en.wikipedia.org/wiki/I%C2%B2C), [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) |
 | 👥 Support | High | High | High | Moderate |
 | 💸 Cost        | € | €€ | €€ | €€€ |
 
@@ -427,7 +426,7 @@ N-key rollover - reporting any number of key-presses at once.
 - **Large community**
 - **AVR/8 Bit Support** (ATmega32U4, etc.)
 
-- **Realtime keymap updating** ([VIA](https://www.caniusevia.com/), [VIAL](https://get.vial.today/), [remap-keys.app](https://remap-keys.app/), etc) ✨
+- **Real-time keymap updating** ([VIA](https://www.caniusevia.com/), [VIAL](https://get.vial.today/), [remap-keys.app](https://remap-keys.app/), etc) ✨
 
 #### Cons
 - **Limited wireless support** (BLE: Adafruit Bluefruit LE SPI Friend only, BT2.1: RN-42)
@@ -475,7 +474,7 @@ N-key rollover - reporting any number of key-presses at once.
 
 #### Pros:
 - Powered by [embassy](https://embassy.dev/)
-- **Eeasy configuration throught TOML**
+- **Easy configuration through TOML**
 - **Bluetooth support**
 - **Power-efficient** 🔋
 - **Straightforward build using Cargo** 📦
