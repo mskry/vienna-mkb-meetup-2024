@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /images/background-2.jpg
+image: /assets/background-2.jpg
 # some information about your slides (markdown enabled)
 title: Welcome to Vienna MKB Meetup 2024
 info: |
