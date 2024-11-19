@@ -9,7 +9,7 @@ info: |
 # apply unocss classes to the current slide
 class: relative
 layout: cover
-background: /images/background-2.jpg
+background: '/images/background-2.jpg'
 drawings:
   persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
